@@ -1,0 +1,33 @@
+{
+  "extends": [
+    "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["pyyaml"],
+      "prBodyDefinitions": {
+        "Issue": "123"
+      }
+    },
+    {
+      "matchPackageNames": ["pymeta3"],
+      "prBodyDefinitions": {
+        "Issue": "456"
+      }
+    },
+    {
+      "matchPackageNames": ["pyyaml", "pymeta3"],
+      "prBodyColumns": [
+        "Package",
+        "Type",
+        "Update",
+        "Change",
+        "Pending",
+        "Issue"
+      ],
+      "commitMessagePrefix": "{{#each upgrades}}{{{upgrade.prBodyDefinitions.Issue}}} {{/each}}",
+      "groupName": "Deps",
+      "prHeader": "depNames: {{#each upgrades}}{{{upgrade.depName}}} {{/each}}\nIssues: {{#each upgrades}}{{{upgrade.prBodyDefinitions.Issue}}} {{/each}}"
+    }
+  ]
+}
