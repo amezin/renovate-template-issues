@@ -16,7 +16,13 @@
       }
     },
     {
-      "matchPackageNames": ["pyyaml", "pymeta3"],
+      "matchPackageNames": ["pybars3"],
+      "prBodyDefinitions": {
+        "Issue": "789"
+      }
+    },
+    {
+      "matchPackageNames": ["pyyaml", "pymeta3", "pybars3"],
       "prBodyColumns": [
         "Package",
         "Type",
@@ -25,12 +31,11 @@
         "Pending",
         "Issue"
       ],
-      "group": {
-        "commitMessagePrefix": "{{#each upgrades}}{{{prBodyDefinitions.Issue}}} {{/each}}",
-        "commitMessageTopic": "{{#each upgrades}}{{depName}} {{/each}}"
-      },
-      "groupName": "Deps",
-      "prHeader": "depNames: {{#each upgrades}}{{{depName}}} {{/each}}\nIssues: {{#each upgrades}}{{{prBodyDefinitions.Issue}}} {{/each}}"
+      "commitMessagePrefix": "{{#each upgrades}}{{{prBodyDefinitions.Issue}}} {{/each}}"
+    },
+    {
+      "matchPackageNames": ["pymeta3", "pybars3"],
+      "groupName": "pybars3 deps group"
     }
   ]
 }
